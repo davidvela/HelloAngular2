@@ -4,17 +4,17 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## Development ---------------
 the angular project here was created following the tutorials from angular: https://angular.io/docs/ts/latest/tutorial/toh-pt6.html
-    1. Introduction 
-    2. The Hero Editor 
-    3. Master/Detail 
-    4. Multiple Components 
-    5. Services
-    6. Routing 
-    7. HTTP 
+1. Introduction 
+2. The Hero Editor 
+3. Master/Detail 
+4. Multiple Components 
+5. Services
+6. Routing 
+7. HTTP 
 
 
 Branch: 
-    - http_branch - branch without the HTTP lesson! 
+- http_branch: branch without the HTTP lesson! 
 
 
 ## Development server
