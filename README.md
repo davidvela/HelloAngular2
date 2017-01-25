@@ -2,6 +2,21 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
+## Development ---------------
+the angular project here was created following the tutorials from angular: https://angular.io/docs/ts/latest/tutorial/toh-pt6.html
+    1. Introduction 
+    2. The Hero Editor 
+    3. Master/Detail 
+    4. Multiple Components 
+    5. Services
+    6. Routing 
+    7. HTTP 
+
+
+Branch: 
+    - http_branch - branch without the HTTP lesson! 
+
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
