@@ -3,7 +3,10 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
 ## Development ---------------
-the angular project here was created following the tutorials from angular: https://angular.io/docs/ts/latest/tutorial/toh-pt6.html
+the angular project here was created following the tutorials from angular: 
+
+https://angular.io/docs/ts/latest/tutorial/toh-pt6.html
+
 1. Introduction 
 2. The Hero Editor 
 3. Master/Detail 
