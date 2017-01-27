@@ -13,10 +13,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { AppRoutingModule }     from './app-routing.module';
-
+//    //"angular-in-memory-web-api": "0.0.21",
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
+import { PieComponent } from './hero-charts/pie/pie.component'; 
 
 @NgModule({
   declarations: [
@@ -25,13 +26,14 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
     HeroesComponent,
     DashboardComponent,
     HeroSearchComponent,
+    PieComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule ,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AppRoutingModule 
   ],
   providers: [ HeroService],
   bootstrap: [AppComponent]
