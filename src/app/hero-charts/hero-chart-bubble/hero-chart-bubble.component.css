@@ -1,0 +1,21 @@
+.bubbles  {
+    fill: none;
+    /*fill: rgb(239, 237, 245);*/
+    stroke: black; 
+    stroke-width: 3.5px;
+    pointer-events: all;
+}
+
+.d3-chart {
+  width: 100%;
+  height: 400px;
+}
+
+.d3-chart .axis path,
+.d3-chart .axis line {
+  stroke: #999;
+}
+
+.d3-chart .axis text {
+  fill: #999;
+}

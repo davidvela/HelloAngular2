@@ -40,7 +40,7 @@ export class HeroChartMapComponent implements OnInit {
     this.initSvg()
     this.drawMap();
     //this.drawLegend();
-  }
+    }
 
   private initSvg() {
     //set colors 
@@ -126,7 +126,7 @@ export class HeroChartMapComponent implements OnInit {
         k = 1,
         name = d.properties.NAME_1;
 
-    this.group    = d3.select("g");
+    //this.group    = d3.select("g");
     this.group.selectAll("text").remove();
     if ((this.focused === null) || !(this.focused === d)) {
       var centroid = this.geoPath.centroid(d),
