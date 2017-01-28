@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
 import * as d3 from 'd3-selection';
 import * as d3Scale from "d3-scale";
 import * as d3Shape from "d3-shape";
@@ -22,8 +23,9 @@ const chartData: any[] = [
 
 @Component({
   selector: 'app-pie',
+  encapsulation: ViewEncapsulation.None, /*this make CSS D3JS work*/
   templateUrl: './pie.component.html',
-  styleUrls: ['./pie.component.css']
+  styleUrls: ['./pie.component.css']    /*this does not work in D3JS*/
 })
 export class PieComponent implements OnInit {
   title: string = 'D3.js with Angular 2!';
@@ -95,12 +97,12 @@ export class PieComponent implements OnInit {
 
   private drawLegend() {
     let legendTitle = this.svg.append("text")
-                              .attr("class",     "title")
+                              .attr("class",     "Legendtitle")
                               .attr('transform', "translate(-" + this.width / 2 + ",-" + this.height / 2 + ")")
                               .attr("x", 0)
                               .attr("y", 10)
-                              .attr("font-size", "12px")
-                              .attr("fill", "#404040")
+                              //.attr("font-size", "12px")
+                              //.attr("fill", "#404040")
                               .text("Legend:");
     //Initiate Legend	
     let legend = this.svg.append("g")

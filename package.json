@@ -63,6 +63,8 @@
     "@types/d3-axis": "^1.0.5",
     "@types/d3-scale": "^1.0.4",
     "@types/d3-selection": "^1.0.5",
-    "@types/d3-shape": "^1.0.5"
+    "@types/d3-shape": "^1.0.5",
+    "@types/d3-geo": "^1.4.0"
+
     }
 }

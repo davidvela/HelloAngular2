@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroService  }   from './shared/hero.service';
+import { HeroGermanyDataService  }   from './shared/hero-germanydata.service';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
@@ -17,7 +19,9 @@ import { AppRoutingModule }     from './app-routing.module';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
-import { PieComponent } from './hero-charts/pie/pie.component'; 
+import { PieComponent } from './hero-charts/pie/pie.component';
+import { HeroChartMapComponent } from './hero-charts/hero-chart-map/hero-chart-map.component';
+import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-chart-bubble.component'; 
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { PieComponent } from './hero-charts/pie/pie.component';
     DashboardComponent,
     HeroSearchComponent,
     PieComponent,
+    HeroChartMapComponent,
+    HeroChartBubbleComponent,
   ],
   imports: [
     BrowserModule,
