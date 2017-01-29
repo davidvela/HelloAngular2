@@ -84,18 +84,41 @@ export class HeroChartMapComponent implements OnInit {
         .rotate([rotLong,0,0]) 
         .translate([this.width/2,this.height/2])
         .scale(scaleFactor*0.975*1000)
+        //.scale(4*1000)
         //.scale(4*1000)  //1000 is default for USA map
-        .center(center);
+        .center(center)
+        ;
 
-
-      this.geoPath = d3Geo.geoPath().projection(projection);
+      this.geoPath = d3Geo.geoPath().projection(geoProjection);
       var graticule = d3Geo.geoGraticule()
           .step([1, 1]);
-      this.group.append("path")
+
+      let group  = this.group.selectAll("g").data(this.mapData.features).enter().append("g");
+      let states = group.append("path")
+          .attr("d", this.geoPath)
+          .attr("class", "feature")
+          .on("click", (d:any) => {   console.log(this);
+                                      this.group.selectAll("text").remove();
+                                  } )
+      ;   
+      let texts = group.append("text")
+                    .text( (d:any)=> d.properties.NAME_1 )
+                    .attr("x", (d:any) => this.geoPath.centroid(d)[0]  )
+                    .attr("y", (d:any) => this.geoPath.centroid(d)[1]  )
+                    .style("text-anchor","middle")
+                    .style("font-size","8px")
+                    .style("stroke-width","0px")
+                    .style("fill","black")
+                    .style("font-family","Times New Roman")
+                    ;
+
+/*      this.group.append("path")
           .datum(graticule)
           .attr("class", "graticuleLine")
           .attr("d", this.geoPath);
       
+
+
       this.group.selectAll("path.feature")
                   .data(this.mapData.features)
                   .enter()
@@ -104,6 +127,20 @@ export class HeroChartMapComponent implements OnInit {
                     .attr("d", this.geoPath)
                     .on("click", this.clickPath)
                     ;
+      this.group.selectAll("path.feature")
+                  .data(this.mapData.features)
+                  .enter().append("text")
+                    .text("test" )//(d:any)=> d.properties.NAME_1 )
+                    .attr("x", (d:any) => { console.log(this.geoPath.centroid(d)[0] );
+                                            return this.geoPath.centroid(d)[0] } )
+                    .attr("y", (d:any) => this.geoPath.centroid(d)[1])
+                    .style("text-anchor","middle")
+                    .style("font-size","8px")
+                    .style("stroke-width","0px")
+                    .style("fill","black")
+                    .style("font-family","Times New Roman")
+                  // .on("click", this.clickText)
+                  ; */
 
           console.log("d3.json: bounds = "+bounds);
           console.log("d3.json: bottomLeft = "+bottomLeft);

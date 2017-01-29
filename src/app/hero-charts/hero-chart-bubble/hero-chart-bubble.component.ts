@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild } from '@an
 import * as d3 from 'd3-selection';
 import * as d3Scale from "d3-scale";
 import * as d3Shape from "d3-shape";
+import * as d3Hier from "d3-hierarchy";
 
 
 //import { Stats } from './shared/data';
@@ -70,55 +71,83 @@ export class HeroChartBubbleComponent implements OnInit {
     this.svg = d3.select(element).append('svg')
       .attr('width', element.offsetWidth)
       .attr('height', element.offsetHeight);
-
     // chart plot area
     this.chart = this.svg.append('g')
       .attr('class', 'bars')
-      .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);
-  
+      .attr('transform', `translate(${this.margin.left}, ${this.margin.top})`);  
     this.color = d3Scale.scaleOrdinal()
-                        //      blue          red        green     purple     blue       orange    other - yellow 
                           .range(["#086EC2", "#890E0E", "#589531", "#752AE5", "#15A4BD", "#ff8c00", "AFB237"]);
 }
 
-
-
-
-
-
-  private initSvg() {
-      //set colors 
-      this.color = d3Scale.scaleOrdinal()
-                        //      blue          red        green     purple     blue       orange    other - yellow 
-                          .range(["#086EC2", "#890E0E", "#589531", "#752AE5", "#15A4BD", "#ff8c00", "AFB237"]);
-      this.svg    = d3.select("svg2").append("g")
-                 .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")")
-                 .attr("class", "bubbles")
-                 ;
-
-
-  }
-  
   private drawBubbles() {
-      let bubbles = this.svg.append("g");
+
+const data: any[] = [
+        {id: "root",     value: ""}, //blue dark - .NET
+        {id: "root.oracle",  value: 19}, // red  oracle db
+        {id: "root.java",           value: 40}, // green java
+        {id: "root.jboss",          value: 15}, // purple jboss
+        {id: "root.SAP",            value: 59}, // light blue sap 
+        {id: "root.virtualization", value: 32}, // orange virtualization
+        {id: "root.other",          value: 10}
+      ];
+
+      let group = this.svg.append("g");
+      let bubblesG = group.selectAll("g").data(chartData).enter().append("g")
+        .attr('transform', 'translate(200, 50)') ; 
       
-      bubbles.selectAll("rect").data(chartData).enter()
-                       .append("circle")
+      let stratify = d3Hier.stratify()
+                      .parentId(function(d:any) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+      let nodes = d3Hier.pack().size([400,400]).padding(800);
+    
+      let root = stratify(data)
+          .sum(function(d:any) {    return d.value; })
+          .sort(function(a:any, b:any) { return b.value - a.value; });
+
+      nodes(root);
+      console.log(root.descendants());
+
+      let node = group.selectAll(".node")
+            .data(root.descendants())
+            //.filter(function(d) { return !d.children; }))
+            .enter().append("g")
+              //.attr('transform', 'translate(200, 50)')  
+              .attr("class", "node")
+              .attr("transform", (d:any) =>  "translate(" + d.x + "," + d.y + ")" );
+
+        node.append("circle")
+            .attr("r", (d) => 40 ); //  return d.r; );
+
+        node.append("text")
+            .text(function(d) { return d.id; })
+            //.style("font-size", function(d) { return Math.min(2 * d.r, (2 * d.r - 8) / this.getComputedTextLength() * 24) + "px"; })
+            .attr("dy", ".35em")
+            .style("fill", "white")
+            ;
+
+
+
+
+
+      bubblesG.append("circle")
                         .attr("id", (d:any, i) => i )
-                        .attr("cx", 200).attr("cy", 200)
+                        .attr("cx", (d:any, i:any) => 50 * i + 10)
+                        .attr("cy",0)
                         .attr("r", (d)=> 20 )
                         .style("fill", (d) => this.color(d[Dimension.label]) );
                  
-      bubbles.selectAll("rect").data(chartData).enter()
-                    .append("text")
-                    //.attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+      bubblesG.append("text")
+                    .attr("transform", (d: any, i:any) => "translate("+ (50* i) + "," + 0  + ")")
                     .attr("dy", ".35em")
                     .text((d: any) => d[Dimension.value]);
 
-      bubbles.selectAll("rect").data(chartData).enter()
-                .append("title")
-                .text( (d)=> d[Dimension.label] + "\n" + d[Dimension.value]  );
+     // bubblesG.append("title")
+     //           .text( (d)=> d[Dimension.label] + "\n" + d[Dimension.value]  );
   }
+
+
+    private createHierarchy(){
+
+    }
 
     private drawLegend() {
       let legendTitle = this.svg.append("text")
@@ -133,11 +162,12 @@ export class HeroChartBubbleComponent implements OnInit {
                           ;
       legend.selectAll("rect").data(chartData).enter().append("rect")
                         .attr("x", 0).attr("y", (d: any, i:any) => i * 20 + 20 )
-                        .attr("width", 10).attr("height", 10)
+                        .attr("width", 40).attr("height", 10)
                         .style("fill", (d: any) => this.color(d[Dimension.label])  )
+                        .style("stroke","black"  )
                         ;
       legend.selectAll("text").data(chartData).enter().append("text")
-                        .attr("x", 20).attr("y", (d:any, i:any) => i*20 + 29)
+                        .attr("x", 50).attr("y", (d:any, i:any) => i*20 + 29)
                         .attr("font-size", "11px").attr("fill", "#737373")
                         .text((d: any) => d[Dimension.label]);           
                         ;
