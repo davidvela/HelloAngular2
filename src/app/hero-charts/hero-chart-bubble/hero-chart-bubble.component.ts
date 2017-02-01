@@ -82,14 +82,83 @@ export class HeroChartBubbleComponent implements OnInit {
   private drawBubbles() {
 
 const data: any[] = [
-        {id: "root",     value: ""}, //blue dark - .NET
-        {id: "root.oracle",  value: 19}, // red  oracle db
-        {id: "root.java",           value: 40}, // green java
-        {id: "root.jboss",          value: 15}, // purple jboss
-        {id: "root.SAP",            value: 59}, // light blue sap 
-        {id: "root.virtualization", value: 32}, // orange virtualization
-        {id: "root.other",          value: 10}
+        { id: "root",     
+          value: "" ,   
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016
+        }, 
+        {
+          id: "root.oracle",         
+          value: 19,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                     
+        }, 
+        {
+          id: "root.java",           
+          value: 40,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                        
+        }, 
+        {
+          id: "root.jboss",          
+          value: 15,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                        
+        }, 
+        {
+          id: "root.SAP",            
+          value: 59 ,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                       
+        }, 
+        {
+          id: "root.virtualization", 
+          value: 32  ,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                      
+        }, 
+        {
+          id: "root.other",          
+          value: 10  ,
+          primary: true,
+          category: "Product",
+          name: "Java",
+          experience: "X",
+          level: "X",
+          lastYearUsed: 2016                      
+        }
       ];
+
+    const Dimension: any = {
+          label: "id",
+          value: "value",
+          color: "primary"
+      };
+
 
       let group = this.svg.append("g");
       let bubblesG = group.selectAll("g").data(chartData).enter().append("g")
@@ -126,7 +195,7 @@ const data: any[] = [
 
 
 
-
+// normal circles 
 
       bubblesG.append("circle")
                         .attr("id", (d:any, i) => i )
