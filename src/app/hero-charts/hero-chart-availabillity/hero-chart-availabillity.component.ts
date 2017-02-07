@@ -28,7 +28,7 @@ export class HeroChartAvailabillityComponent implements OnInit {
     this.height = 100 - this.margin.top - this.margin.bottom;
   }
 
-  private data: any[] = [ { percent : 50, date: new Date()  } ];
+  private data: any[] = [ { percent : 50, date: new Date(2017, 4, 28)  } ];
   private date: Array<Date> = []; 
 
   ngOnInit() {
@@ -36,10 +36,16 @@ export class HeroChartAvailabillityComponent implements OnInit {
     if (this.data[0].percent ==  0 || this.data[0].percent == undefined ) this.data[0].percent = 0.
     let currentDate : Date = this.data[0].date;
     this.date.push( currentDate );
-    this.date.push( currentDate );
-    this.date.push( currentDate );
-   // this.date.push( currentDate.setMonth( currentDate.getMonth() + 1 ) );
-   // this.date.push( currentDate.setMonth( currentDate.getMonth() + 1 ) );
+
+   let nextDate : Date = new Date(currentDate.getFullYear(), 
+                                  currentDate.getMonth() + 1, 
+                                  currentDate.getDate() );
+    this.date.push( nextDate );
+
+   let nextnextDate : Date = new Date(currentDate.getFullYear(), 
+                                  currentDate.getMonth() + 2, 
+                                  currentDate.getDate() );    
+   this.date.push( nextnextDate );
 
     let element = this.chartContainer.nativeElement;
     this.svg = d3.select(element).append('svg')
@@ -65,6 +71,8 @@ export class HeroChartAvailabillityComponent implements OnInit {
         .attr("font-size", "11px").attr("fill", "#737373")
         .text("Time frame"); */
 
+    console.log( "date = " + this.data[0].date.getYear())
+
     let line = this.svg.append("rect")
               .attr("x", 15 ).attr("y", 25 )
               .attr("width", this.barWidth + 10 )
@@ -72,11 +80,11 @@ export class HeroChartAvailabillityComponent implements OnInit {
               .style("stroke","black"  )
    let dates = xAxisG.selectAll("rect").data(this.date).enter().append("text")       
               .style("text-anchor", "middle")
-              .attr("x", (d:any, i:any) =>  this.barWidth*i/2)
+              .attr("x", (d:any, i:any) =>  this.barWidth*i/2 + this.margin.left)
               .attr("y", 0)
               .attr("class", "label")
               .attr("font-size", "11px").attr("fill", "#737373")
-              .text( (d:any) => d.getMonth() + "-" + d.getYear() );
+              .text( (d:any) => d.getMonth() + "-" + d.getFullYear() );
 
     /*let x = d3Scale.scaleTime().range([0, this.width]);
     x.domain(  ); //d3Aarray.extent( this.date, d:any => d3.date ) ) ;    
@@ -92,10 +100,18 @@ export class HeroChartAvailabillityComponent implements OnInit {
     let group = this.svg.append("g");
     let bar = group.selectAll("rect").data(this.data).enter().append("rect")
               .attr("x", 20).attr("y", 30 )
-              .attr("width", this.barWidth)
+              .attr("width", (d:any) => this.barWidth * d.percent/100)
               .attr("height", 20 ) //25)
-              .style("fill", (d: any) =>  "green"  )
+              .style("fill", (d: any) =>  "#41c441"  )
               .style("stroke","black"  )
+                 
+    let textBar = group.selectAll("text").data(this.data).enter().append("text")       
+              .style("text-anchor", "middle")
+              .attr("x", (d:any, i:any) => this.barWidth * d.percent/200)
+              .attr("y", 45)
+              .attr("class", "label")
+              .attr("font-size", "11px").attr("fill", "black")
+              .text( (d:any) => d.percent + "%" );
   }
 
 }

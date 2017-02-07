@@ -97,8 +97,9 @@ export class HeroChartMapComponent implements OnInit {
       let states = group.append("path")
           .attr("d", this.geoPath)
           .attr("class", "feature")
-          .on("click", (d:any) => {   console.log(this);
-                                      this.group.selectAll("text").remove();
+          .on("click", (d:any) => {  alert("click pressed");
+                                      // console.log(this);
+                                     // this.group.selectAll("text").remove();
                                   } )
       ;   
       let texts = group.append("text")
