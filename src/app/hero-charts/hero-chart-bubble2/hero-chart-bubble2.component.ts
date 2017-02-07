@@ -145,7 +145,37 @@ export class HeroChartBubble2Component implements OnInit {
               //.attr('transform', 'translate(200, 50)')  
               .attr("class", "node")
               .attr("transform", (d:any) =>  "translate(" + d.x + "," + d.y + ")" )
-              ;     
+              ;   
+
+/********************************************************************************* */
+      // SHADOWS// http://stackoverflow.com/questions/12277776/how-to-add-drop-shadow-to-d3-js-pie-or-donut-chart
+/********************************************************************************* */
+
+        /* For the drop shadow filter... */
+          var defs = node.append("defs");
+
+          var filter = defs.append("filter")
+              .attr("id", "dropshadow")
+
+          filter.append("feGaussianBlur")
+              .attr("in", "SourceAlpha")
+              .attr("stdDeviation", 1) // 4 - focused
+              .attr("result", "blur");
+          filter.append("feOffset")
+              .attr("in", "blur")
+              .attr("dx", 2)
+              .attr("dy", 2)
+              .attr("result", "offsetBlur");
+
+          var feMerge = filter.append("feMerge");
+
+          feMerge.append("feMergeNode")
+              .attr("in", "offsetBlur")
+          feMerge.append("feMergeNode")
+              .attr("in", "SourceGraphic");
+
+
+
 /********************************************************************************* */
       // DRAW//  
 /********************************************************************************* */
@@ -157,6 +187,7 @@ export class HeroChartBubble2Component implements OnInit {
               //.attr("r", (d) => radio( d.value) )
               .attr("stroke-width", 1)
               .attr("stroke", "black")
+              .attr("filter", "url(#dropshadow)")
               .style("fill", (d) => (d.data.primary === true) ? this.color(d.data[dim.label]) : "gray"  )
               ;        
         node.append("text")
@@ -167,19 +198,6 @@ export class HeroChartBubble2Component implements OnInit {
             .style("text-anchor", "middle")
             .attr("fill", "white").attr("font-size", "11px")
             ;
-
-/********************************************************************************* */
-      // SHADOWS// 
-/********************************************************************************* */
-
-
-
-
-
-
-
-
-
 
        }
         catch (e) {
