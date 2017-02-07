@@ -21,7 +21,9 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { PieComponent } from './hero-charts/pie/pie.component';
 import { HeroChartMapComponent } from './hero-charts/hero-chart-map/hero-chart-map.component';
-import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-chart-bubble.component'; 
+import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-chart-bubble.component';
+import { HeroChartBubble2Component } from './hero-charts/hero-chart-bubble2/hero-chart-bubble2.component';
+import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availabillity/hero-chart-availabillity.component'; 
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-c
     PieComponent,
     HeroChartMapComponent,
     HeroChartBubbleComponent,
+    HeroChartBubble2Component,
+    HeroChartAvailabillityComponent,
   ],
   imports: [
     BrowserModule,
