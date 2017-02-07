@@ -13,6 +13,7 @@ import { HeroGermanyDataService  }   from './shared/hero-germanydata.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { MaterialModule } from '@angular/material';
 
 import { AppRoutingModule }     from './app-routing.module';
 //    //"angular-in-memory-web-api": "0.0.21",
@@ -23,7 +24,8 @@ import { PieComponent } from './hero-charts/pie/pie.component';
 import { HeroChartMapComponent } from './hero-charts/hero-chart-map/hero-chart-map.component';
 import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-chart-bubble.component';
 import { HeroChartBubble2Component } from './hero-charts/hero-chart-bubble2/hero-chart-bubble2.component';
-import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availabillity/hero-chart-availabillity.component'; 
+import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availabillity/hero-chart-availabillity.component';
+import { Pie2Component } from './hero-charts/pie2/pie2.component'; 
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availa
     HeroChartBubbleComponent,
     HeroChartBubble2Component,
     HeroChartAvailabillityComponent,
+    Pie2Component,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule 
   ],

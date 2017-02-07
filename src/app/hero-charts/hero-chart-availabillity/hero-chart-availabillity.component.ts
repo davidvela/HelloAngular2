@@ -70,9 +70,7 @@ export class HeroChartAvailabillityComponent implements OnInit {
         .attr("class", "label")
         .attr("font-size", "11px").attr("fill", "#737373")
         .text("Time frame"); */
-
-    console.log( "date = " + this.data[0].date.getYear())
-
+    //console.log( "date = " + this.data[0].date.getYear())
     let line = this.svg.append("rect")
               .attr("x", 15 ).attr("y", 25 )
               .attr("width", this.barWidth + 10 )

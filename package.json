@@ -12,7 +12,7 @@
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/davidvela/HelloAngular2"
   },
@@ -23,7 +23,7 @@
   "author": "David Vela <david.vela.tirado@gmail.com>",
   "bugs": {
     "url": "https://github.com/davidvela/HelloAngular2/issues"
-  }, 
+  },
   "homepage": "https://github.com/davidvela/HelloAngular2",
   "private": true,
   "dependencies": {
@@ -32,15 +32,17 @@
     "@angular/core": "^2.3.1",
     "@angular/forms": "^2.3.1",
     "@angular/http": "^2.3.1",
+    "@angular/material": "^2.0.0-beta.1",
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
+    "@angular2-material/button": "^2.0.0-alpha.8-2 -",
     "angular-in-memory-web-api": "0.2.0",
     "core-js": "^2.4.1",
+    "d3": "^4.2.6",
     "rxjs": "^5.0.3",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.7.6",
-    "d3": "^4.2.6"
+    "zone.js": "^0.7.6"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^2.3.1",
@@ -68,6 +70,5 @@
     "@types/d3-hierarchy": "^1.0.2",
     "@types/d3-force": "^1.0.6",
     "@types/d3-format": "^1.0.2"
-
-    }
+  }
 }
