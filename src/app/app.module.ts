@@ -25,7 +25,8 @@ import { HeroChartMapComponent } from './hero-charts/hero-chart-map/hero-chart-m
 import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-chart-bubble.component';
 import { HeroChartBubble2Component } from './hero-charts/hero-chart-bubble2/hero-chart-bubble2.component';
 import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availabillity/hero-chart-availabillity.component';
-import { Pie2Component } from './hero-charts/pie2/pie2.component'; 
+import { Pie2Component } from './hero-charts/pie2/pie2.component';
+import { HeroAngularComponent } from './hero-angular/hero-angular.component'; 
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { Pie2Component } from './hero-charts/pie2/pie2.component';
     HeroChartBubble2Component,
     HeroChartAvailabillityComponent,
     Pie2Component,
+    HeroAngularComponent,
   ],
   imports: [
     BrowserModule,

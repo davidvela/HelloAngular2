@@ -1,5 +1,7 @@
 <div id="search-component">
+  <md-toolbar color="primary">
   <h4>Hero Search</h4>
+  <span class="toolbar-separator">|</span>
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
   <div>
     <div *ngFor="let hero of heroes | async"
@@ -7,4 +9,13 @@
       {{hero.name}}
     </div>
   </div>
+  <span class="toolbar-separator">|</span>
+   <nav>
+     <a routerLink="/dashboard">Dashboard</a>
+     <a routerLink="/heroes">Heroes</a>
+     <a routerLink="/angularjs">AngularJS</a>
+   </nav>
+
+
+</md-toolbar>
 </div>

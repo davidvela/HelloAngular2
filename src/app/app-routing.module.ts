@@ -1,3 +1,4 @@
+import { HeroAngularComponent } from './hero-angular/hero-angular.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes }     from '@angular/router';
 
@@ -8,6 +9,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 const routes: Routes = [
       { path: '',  redirectTo: '/dashboard', pathMatch: 'full'  },
       { path: 'dashboard',  component: DashboardComponent },
+      { path: 'angularjs',  component: HeroAngularComponent },
       { path: 'heroes',     component: HeroesComponent },
       { path: 'detail/:id', component: HeroDetailComponent }
 ];

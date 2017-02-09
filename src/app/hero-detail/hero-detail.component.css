@@ -27,10 +27,3 @@ button:disabled {
   color: #ccc; 
   cursor: auto;
 }
-
-/* Angular material - panel */
-.layout-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
