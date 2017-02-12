@@ -1,5 +1,9 @@
 # HelloAngular2
 
+![alt tag](https://github.com/davidvela/HelloAngular2/blob/master/img/heroPortal.JPG
+
+
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
 ## Development ---------------
