@@ -130,7 +130,7 @@ export class HeroChartBubble2Component implements OnInit {
                       .id( (d:any) =>  d.id )
                       //.parentId( (d:any) => d[dim.id].substring(0, d[dim.id].lastIndexOf("."))  );  
                       .parentId( (d:any) => d.parent  );  
-        let nodes = d3Hier.pack().size([400,140]).padding(0);
+        let nodes = d3Hier.pack().size([400,140]).padding(5);
 
         let root = stratify(children)
           .sum( (d:any) =>  d.value )
