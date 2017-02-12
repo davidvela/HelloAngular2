@@ -1,6 +1,6 @@
 # HelloAngular2
 
-![heroPortal](https://github.com/davidvela/HelloAngular2/blob/master/img/heroPortal.JPG
+![heroPortal](https://github.com/davidvela/HelloAngular2/blob/master/img/heroPortal.JPG)
 
 
 
