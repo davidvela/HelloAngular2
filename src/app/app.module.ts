@@ -10,6 +10,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroService  }   from './shared/hero.service';
 import { HeroGermanyDataService  }   from './shared/hero-germanydata.service';
+import {AgGridModule} from "ag-grid-angular/main";
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -26,7 +27,10 @@ import { HeroChartBubbleComponent } from './hero-charts/hero-chart-bubble/hero-c
 import { HeroChartBubble2Component } from './hero-charts/hero-chart-bubble2/hero-chart-bubble2.component';
 import { HeroChartAvailabillityComponent } from './hero-charts/hero-chart-availabillity/hero-chart-availabillity.component';
 import { Pie2Component } from './hero-charts/pie2/pie2.component';
-import { HeroAngularComponent } from './hero-angular/hero-angular.component'; 
+import { HeroAngularComponent } from './hero-angular/hero-angular.component';
+import { HeroTableComponent } from './hero-charts/hero-table/hero-table.component';
+import { RedComponentComponent } from './hero-charts/red-component/red-component.component';
+import { HeroTablengComponent } from './hero-charts/hero-tableng/hero-tableng.component'; 
 
 @NgModule({
   declarations: [
@@ -42,6 +46,9 @@ import { HeroAngularComponent } from './hero-angular/hero-angular.component';
     HeroChartAvailabillityComponent,
     Pie2Component,
     HeroAngularComponent,
+    HeroTableComponent,
+    RedComponentComponent,
+    HeroTablengComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,10 @@ import { HeroAngularComponent } from './hero-angular/hero-angular.component';
     HttpModule,
     MaterialModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule 
+    AppRoutingModule ,
+    AgGridModule.withComponents(
+            [RedComponentComponent]
+        )
   ],
   providers: [ HeroService],
   bootstrap: [AppComponent]

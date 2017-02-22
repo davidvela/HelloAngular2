@@ -1,4 +1,6 @@
+import { skills } from './../../shared/mock-skills';
 import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild, Input } from '@angular/core';
+
 //import * as d3 from 'd3';
 import * as d3 from 'd3-selection';
 import * as d3Scale from "d3-scale";
@@ -29,32 +31,7 @@ export class HeroChartBubble2Component implements OnInit {
   
   //@Input() skills: Skill[];
   @ViewChild('chart') private chartContainer: ElementRef;
-    
-  private skills: Array<any> = [
-{
-      primary: true,
-      category: "PRODUCTS",
-      name: "JEE 6", // Oracle.Oracle JAVA/2EE.JEE 6
-      experience: "3", // years
-      level: "INITIATE",
-      lastYearUsed: 2017
-    } ,{
-      primary: true,
-      category: "PRODUCTS",
-      name: "Java EE (J2EE)", // Oracle.Oracle JAVA/2EE.Java EE (J2EE) 
-      experience: "3", // years
-      level: "INITIATE",
-      lastYearUsed: 2017
-    } ,{
-      primary: false,
-      category: "PRODUCTS",
-      name: "SPRING", // Oracle.Oracle JAVA/2EE.SPRING 
-      experience: "1", // years
-      level: "INITIATE",
-      lastYearUsed: 2016
-    } 
-  ]
-    
+        
     private width: number;
     private height: number;
     private color: any;
@@ -111,7 +88,7 @@ export class HeroChartBubble2Component implements OnInit {
                 primary : "",
               }; children.push(rootV);
 
-      this.skills.forEach(function(d){
+      skills.forEach(function(d){
       let nodeV = {
         id: d.name,
         value: d.experience,
@@ -218,13 +195,13 @@ export class HeroChartBubble2Component implements OnInit {
                           .attr("height", 100).attr("width", 200)
                          // .attr('transform', "translate(" + this.width / 2 + "," + ( this.height / 2 - 20 )+ ")")
                           ;
-      legend.selectAll("rect").data(this.skills).enter().append("rect")
+      legend.selectAll("rect").data(skills).enter().append("rect")
                         .attr("x", 0).attr("y", (d: any, i:any) => i * 20 + 20 )
                         .attr("width", 20).attr("height", 10)
                         .style("fill", (d: any) =>  (d.primary === true) ? this.color(d[dim.label]) : "gray"  )
                         .style("stroke","black"  )
                         ;
-      legend.selectAll("text").data(this.skills).enter().append("text")
+      legend.selectAll("text").data(skills).enter().append("text")
                         .attr("x", 30).attr("y", (d:any, i:any) => i*20 + 29)
                         .attr("font-size", "11px").attr("fill", "#737373")
                         .text((d: any) => d[dim.label]);           

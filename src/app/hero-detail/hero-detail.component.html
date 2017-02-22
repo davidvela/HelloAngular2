@@ -1,23 +1,33 @@
 
     <button (click)="goBack()">Back</button>
     <button (click)="save()">Save</button>
+    <md-tab-group>
+    <md-tab label="Hero + D3JS">
+            <div *ngIf="hero">
+            <h2>   {{hero.name}} details! </h2>
+            <div><label>id:</label>   {{hero.id}}
+            <!-- <div><label>name:</label> {{hero.name}}</div>  
+                    <input value="{{hero.name}}" placeholder="name"> -->
+                    <input [(ngModel)]="hero.name" placeholder="name">
+            </div>
 
-<div *ngIf="hero">
-  <h2>   {{hero.name}} details! </h2>
-  <div><label>id:</label>   {{hero.id}}
-  <!-- <div><label>name:</label> {{hero.name}}</div>  
-        <input value="{{hero.name}}" placeholder="name"> -->
-        <input [(ngModel)]="hero.name" placeholder="name">
-  </div>
+                <app-hero-chart-bubble2></app-hero-chart-bubble2>  
 
-   <!-- <app-pie></app-pie>  only works on this position!!!-->
-    <app-hero-chart-availabillity></app-hero-chart-availabillity>  
-    <app-hero-chart-bubble2></app-hero-chart-bubble2>  
-    <app-hero-chart-bubble></app-hero-chart-bubble>  
-    <app-pie2></app-pie2>
- </div>
- 
-
+            <!-- <app-pie></app-pie>  only works on this position!!!
+                <app-hero-chart-availabillity></app-hero-chart-availabillity>  
+                <app-hero-chart-bubble></app-hero-chart-bubble>  
+                <app-pie2></app-pie2>-->
+            </div>
+            <md-button-toggle-group #group="mdButtonToggleGroup" (change)="onToggleGroupChange($event)">
+                <md-button-toggle value="bubbles" checked="true">   Bubbles </md-button-toggle>
+                <md-button-toggle value="table">   Table     </md-button-toggle>
+            </md-button-toggle-group>
+             <!-- <button md-button class="diagram-menu-item" (click)="clickMenuItem('toggle')">{{ labelToogle }}</button> -->
+    </md-tab>
+    <md-tab label="Tables agGrid" >
+    <app-hero-table></app-hero-table>  
+    </md-tab>
+    </md-tab-group>
 
 
 

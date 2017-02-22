@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params}    from '@angular/router'; 
 import {Location}                   from '@angular/common';
-//import {MdButton,MdButtonModule}                    from '@angular2-material/button'
 import 'rxjs/add/operator/switchMap';
-
-
 import { Hero   }       from '../shared/hero';
 import { HeroService }  from '../shared/hero.service';
 
