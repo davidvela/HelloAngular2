@@ -31,6 +31,11 @@ import { HeroAngularComponent } from './hero-angular/hero-angular.component';
 import { HeroTableComponent } from './hero-charts/hero-table/hero-table.component';
 import { RedComponentComponent } from './hero-charts/red-component/red-component.component';
 import { HeroTablengComponent } from './hero-charts/hero-tableng/hero-tableng.component'; 
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+//import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
+
+import { PaginationModule } from "ng2-bootstrap/ng2-bootstrap";
+import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,10 @@ import { HeroTablengComponent } from './hero-charts/hero-tableng/hero-tableng.co
     AppRoutingModule ,
     AgGridModule.withComponents(
             [RedComponentComponent]
-        )
+        ),
+    Ng2TableModule,
+    PaginationModule,
+    TabsModule,
   ],
   providers: [ HeroService],
   bootstrap: [AppComponent]

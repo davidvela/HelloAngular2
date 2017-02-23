@@ -13,10 +13,10 @@
 
                 <app-hero-chart-bubble2></app-hero-chart-bubble2>  
 
-            <!-- <app-pie></app-pie>  only works on this position!!!
+            <!-- <app-pie></app-pie>  only works on this position!!!-->
                 <app-hero-chart-availabillity></app-hero-chart-availabillity>  
                 <app-hero-chart-bubble></app-hero-chart-bubble>  
-                <app-pie2></app-pie2>-->
+                <app-pie2></app-pie2>
             </div>
             <md-button-toggle-group #group="mdButtonToggleGroup" (change)="onToggleGroupChange($event)">
                 <md-button-toggle value="bubbles" checked="true">   Bubbles </md-button-toggle>
@@ -25,7 +25,10 @@
              <!-- <button md-button class="diagram-menu-item" (click)="clickMenuItem('toggle')">{{ labelToogle }}</button> -->
     </md-tab>
     <md-tab label="Tables agGrid" >
-    <app-hero-table></app-hero-table>  
+        <app-hero-table></app-hero-table>  
+    </md-tab>
+    <md-tab label="Tables NG" >
+        <app-hero-tableng></app-hero-tableng>  
     </md-tab>
     </md-tab-group>
 

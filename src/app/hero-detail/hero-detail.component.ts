@@ -5,6 +5,7 @@ import 'rxjs/add/operator/switchMap';
 import { Hero   }       from '../shared/hero';
 import { HeroService }  from '../shared/hero.service';
 
+enum SkillDiagramState { BUBBLE, TABLE}
 
 @Component({
   selector: 'app-hero-detail',
@@ -14,6 +15,11 @@ import { HeroService }  from '../shared/hero.service';
 export class HeroDetailComponent implements OnInit {
   
   @Input()  hero: Hero;
+  labelToggle: string;
+  public labelToggleBubbles: "Bubbles";
+  public labelToggleTable: "Table";
+  states = SkillDiagramState;
+  state: SkillDiagramState;
 
   constructor(
     private heroService: HeroService,
@@ -35,4 +41,20 @@ export class HeroDetailComponent implements OnInit {
     .then(() => this.goBack());
 
   }
+
+  onToggleGroupChange(buttonToggleChangeEvent: any) {
+    switch (buttonToggleChangeEvent.value) {
+      case "bubbles": {
+        this.labelToggle = this.labelToggleBubbles;
+        this.state = SkillDiagramState.BUBBLE;
+        break;
+      }
+      case "table": {
+        this.labelToggle = this.labelToggleTable;
+        this.state = SkillDiagramState.TABLE;
+        break;
+      }
+    }
+  }
+
 }
