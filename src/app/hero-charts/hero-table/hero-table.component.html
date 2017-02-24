@@ -4,12 +4,31 @@
     </ag-grid-angular>
 </div>
 
-<div style="width: 300px;">
-    <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-fresh"
+
+<!-- Table 2 Skills -->
+<input (keyup)="onQuickFilterChanged($event)" type="text" id="quickFilterInput" placeholder="Type text to filter..."/>
+<button (click)="doSomething()">Do something</button>
+<div style="width: 400px;">
+    <ag-grid-angular #agGrid style="width: 100%; height: 140px;" class="ag-fresh"
+                     enableColResize
+                     enableSorting
+                     enableFilter
+                     groupHeaders
+                     suppressRowClickSelection	
+					 rowSelection="multiple"
        [gridOptions]="gridOptionsSkills">
     </ag-grid-angular>
 </div>
 
+<!-- Header -->
+<div style="width: 800px;">
+    <h1>Rich Grid with Declarative Markup</h1>
+    <div style="padding: 4px;">
+        <div style="float: right;">
+			<input (keyup)="onQuickFilterChanged($event)" type="text" id="quickFilterInput" placeholder="Type text to filter..."/>
+        </div>
+     </div>
+ </div>
 
 
 <table st-table="skills" class="table table-striped">
