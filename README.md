@@ -4,6 +4,15 @@
 ![heroDetails](https://github.com/davidvela/HelloAngular2/blob/master/img/heroDetails.JPG)
 
 
+## Development Test ---------------
+After learning the basic lessons of the tutorial the following tasks will be implemented: 
+1. D3JS in Angular 2: Bubbles, Pie, Bar ... 
+2. AngularJS components 
+3. Tables: ag-grid, angular-table... 
+
+4. Pagination *** to be done
+5. chartJS *** to be done
+6. D3JS bubbles in Horizontal 
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
