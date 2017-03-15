@@ -179,8 +179,8 @@ const data: any[] = [
           .sum( (d:any) =>  d.value )
           .sort((a:any, b:any) =>  (b.value - a.value) );
       nodes(root);
-      console.log(root.descendants());
-      console.log(root.children);
+      //console.log(root.descendants());
+      //console.log(root.children);
 
     let max_amount = d3Aarray.max(data, function(d) { return parseInt(d.value, 10); } );
     let  radius_scale = d3Scale.scalePow().exponent(0.5).domain([0, max_amount]).range([2, 85]);
@@ -202,8 +202,8 @@ const data: any[] = [
       nodesV.push(nodeV);
     }); /*/
 
-      console.log(nodesV);
-  var radio = d3Scale.scaleOrdinal()
+      //console.log(nodesV);
+      var radio = d3Scale.scaleOrdinal()
                   .domain(["1", "2", "3"])
                   .range(["20", "30", "50"]);
 
@@ -229,9 +229,9 @@ const data: any[] = [
 
         node.append("circle")
               .attr("id", (d) => "node-" + d.id )
-             // .attr("r", (d) => 40 ) //  return d.r; );
+              .attr("r", (d) => 40 ) //  return d.r; );
              //.attr("r", (d) =>  d.r )
-             .attr("r", (d) => radio( d.value) )
+             //.attr("r", (d) => radio( d.value) )
              .style("fill", (d) => color(d.data.primary) )
              //.style("fill", "red")//(d) => color(d.primary) )
                
