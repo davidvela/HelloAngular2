@@ -13,6 +13,8 @@ export class HeroTableComponent implements OnInit {
   private gridOptionsSkills: GridOptions;
 
   constructor() { 
+
+      //table 1 
         this.gridOptions = {};
         this.gridOptions.columnDefs = [
             {
@@ -33,34 +35,44 @@ export class HeroTableComponent implements OnInit {
             {id: 10, value: 15},
             {id: 15, value: 20}
         ]
-
-
+        //*********************************************** 
+        //Table 2
+        //*********************************************** 
         this.gridOptionsSkills = {};
         this.gridOptionsSkills.columnDefs = [
             {
+                headerName: "#",
+                checkboxSelection: true,
+                field: "primary",
+                width: 20,
+                suppressSorting: true,
+                pinned : true
+
+            },{
                 headerName: "PR",
                 field: "primary",
-                width: 30
+                width: 50,
+                cellRenderer: this.prCellRenderer
             },
             {
                 headerName: "NAME",
                 field: "name",
-                width: 100
+                width: 150
             },
             {
                 headerName: "EXP",
                 field: "experience",
                 cellRendererFramework: RedComponentComponent,
-                width: 60
+                width: 50
             },{
                 headerName: "LEVEL",
                 field: "level",
-                width: 60
+                width: 80
             },
             {
                 headerName: "LYU",
                 field: "lastYearUsed",
-                width: 60
+                width: 50
             }
 
         ];
@@ -68,6 +80,19 @@ export class HeroTableComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  public onQuickFilterChanged($event) {
+    this.gridOptionsSkills.api.setQuickFilter($event.target.value);
+  }
+
+  public prCellRenderer(params) {
+    return (params.value == true)? "X": "N";
+   // return value; // '<b>' + params.value.toUpperCase() + '</b>';
+  }
+
+  public doSomething($event) {
+    var selectedRows = this.gridOptionsSkills.api.getSelectedRows();
+   console.log("do something" + selectedRows);
   }
 
 }
