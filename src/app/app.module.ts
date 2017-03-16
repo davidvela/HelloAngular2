@@ -33,6 +33,7 @@ import { RedComponentComponent } from './hero-charts/red-component/red-component
 import { HeroTablengComponent } from './hero-charts/hero-tableng/hero-tableng.component'; 
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 //import { NgTableComponent, NgTableFilteringDirective, NgTablePagingDirective, NgTableSortingDirective } from 'ng2-table/ng2-table';
+import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
 
 import { PaginationModule } from "ng2-bootstrap/ng2-bootstrap";
 import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
@@ -57,6 +58,7 @@ import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
   ],
   imports: [
     BrowserModule,
+    Ng2PaginationModule, 
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
