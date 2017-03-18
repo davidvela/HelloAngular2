@@ -20,4 +20,17 @@ export class DashboardComponent implements OnInit {
       .then(heroes => this.heroes = heroes.slice(1, 5));
   }
 
+
+  //force the reload 
+  /*
+  <button (click)="doSomething()">Do something</button>
+
+    import {Component, OnInit, ChangeDetectorRef} from "@angular/core";
+    constructor(private employeeService: EmployeeService, private ref: ChangeDetectorRef) {
+
+  public doSomething(){
+    this.ref.detectChanges();
+  }
+*/
+
 }

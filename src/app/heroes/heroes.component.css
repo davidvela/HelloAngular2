@@ -15,7 +15,7 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 2.2em;
     border-radius: 4px;
   }
   .heroes li.selected:hover {
@@ -36,22 +36,22 @@
     font-size: small;
     color: white;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
+    background-color: #02415d;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
-    height: 1.8em;
+    height: 2.4em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
   
   button.delete {
     float:right;
-    margin-top: 2px;
+    margin-top: 0px;
     margin-right: .8em;
-    background-color: gray !important;
-    color:white;
+    background-color: transparent !important;
+    color:blackwhite;
   }
 #divMasterView
 {

@@ -30,7 +30,7 @@ export class HeroChartBubble2Component implements OnInit {
 
   
   //@Input() skills: Skill[];
-  @ViewChild('chart') private chartContainer: ElementRef;
+  @ViewChild('chart2') private chartContainer: ElementRef;
         
     private width: number;
     private height: number;

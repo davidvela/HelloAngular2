@@ -1,8 +1,13 @@
 <div id="search-component">
   <md-toolbar color="primary">
-  <h4>Hero Search</h4>
+     <nav>
+     <a routerLink="/dashboard">Dashboard</a>
+     <a routerLink="/heroes">Heroes</a>
+     <a routerLink="/angularjs">AngularJS</a>
+   </nav>  
   <span class="toolbar-separator">|</span>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Hero Search" />
   <div>
     <div *ngFor="let hero of heroes | async"
          (click)="gotoDetail(hero)" class="search-result" >
@@ -10,11 +15,7 @@
     </div>
   </div>
   <span class="toolbar-separator">|</span>
-   <nav>
-     <a routerLink="/dashboard">Dashboard</a>
-     <a routerLink="/heroes">Heroes</a>
-     <a routerLink="/angularjs">AngularJS</a>
-   </nav>
+
 
 
 </md-toolbar>

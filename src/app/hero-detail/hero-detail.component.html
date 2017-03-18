@@ -1,40 +1,50 @@
 
     <button (click)="goBack()">Back</button>
     <button (click)="save()">Save</button>
-    <md-tab-group selectedIndex="0">
-    <md-tab label="Hero + D3JS">
-            <div *ngIf="hero">
+
+        <div *ngIf="hero" style = "padding-bottom: 20px; margin: 20px;" >
             <h2>   {{hero.name}} details! </h2>
             <div><label>id:</label>   {{hero.id}}
             <!-- <div><label>name:</label> {{hero.name}}</div>  
                     <input value="{{hero.name}}" placeholder="name"> -->
                     <input [(ngModel)]="hero.name" placeholder="name">
             </div>
+        </div>
 
-                <app-hero-chart-bubble2></app-hero-chart-bubble2>  
+    <md-tab-group selectedIndex="0" style = "padding-bottom: 10px; ">
 
-            <!-- <app-pie></app-pie>  only works on this position!!!-->
-                <app-hero-chart-availabillity></app-hero-chart-availabillity>  
-                <app-hero-chart-bubble></app-hero-chart-bubble>  
-                <app-pie2></app-pie2>
-            </div>
-            <md-button-toggle-group #group="mdButtonToggleGroup" (change)="onToggleGroupChange($event)">
-                <md-button-toggle value="bubbles" checked="true">   Bubbles </md-button-toggle>
-                <md-button-toggle value="table">   Table     </md-button-toggle>
-            </md-button-toggle-group>
-             <!-- <button md-button class="diagram-menu-item" (click)="clickMenuItem('toggle')">{{ labelToogle }}</button> -->
-    </md-tab>
+    <md-tab label="Hero + D3JS">
+        <!-- <app-pie></app-pie>  only works on this position!!!-->
+        <app-hero-chart-availabillity></app-hero-chart-availabillity>  
+        <app-pie2></app-pie2>
+        </md-tab>
     <md-tab label="Chart JS" >
         test the chartJS library 
-    </md-tab>
+        </md-tab>
     
     <md-tab label="Tables agGrid" >
         <app-hero-table></app-hero-table>  
-    </md-tab>
+        </md-tab>
     <md-tab label="Tables NG" >
         <app-hero-tableng></app-hero-tableng>  
-    </md-tab>
+        </md-tab>
+    
     </md-tab-group>
+    <span class="container-menu">
+    <!-- <button md-button class="diagram-menu-item" (click)="clickMenuItem('toggle')">{{ labelToogle }}</button> -->
+    <md-button-toggle-group #group="mdButtonToggleGroup" (change)="onToggleGroupChange($event)" >
+        <md-button-toggle value="bubbles" checked="true">   Bubbles </md-button-toggle>
+        <md-button-toggle value="table">   Table     </md-button-toggle>
+    </md-button-toggle-group>
+    </span>
 
+            <app-hero-chart-bubble  *ngIf="state == states.BUBBLE" ></app-hero-chart-bubble>  
+            <app-hero-chart-bubble2 *ngIf="state == states.BUBBLE"></app-hero-chart-bubble2>  
+<md-grid-list cols="4" >
+  <md-grid-tile      [colspan]="3"      [rowspan]="1">1
+  </md-grid-tile>
+  <md-grid-tile      [colspan]="1"      [rowspan]="1">2
+  </md-grid-tile>
+</md-grid-list>
 
 

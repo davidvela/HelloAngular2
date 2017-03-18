@@ -62,7 +62,7 @@ export class Pie2Component implements OnInit {
   
     this.svg = d3.select(element).append('svg')
       .attr('width', 500 ) //element.offsetWidth)
-      .attr('height', 500);//element.offsetHeight);
+      .attr('height', 300);//element.offsetHeight);
     
     // chart plot area
     this.chart = this.svg.append('g')

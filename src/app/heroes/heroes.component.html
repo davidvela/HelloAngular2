@@ -14,7 +14,7 @@
       </li>
     </ul>
     <div>
-      <label>Hero name:</label> <input #heroName />
+      <label>Hero name:</label> <br><input #heroName />
       <button (click)="add(heroName.value); heroName.value=''">
         Add
       </button>
@@ -26,5 +26,6 @@
     <div *ngIf="selectedHero" > 
         <h2> {{selectedHero.name | uppercase}} is my hero </h2>
         <button (click)="gotoDetail()"> View Details </button>
+            <app-hero-chart-bubble2></app-hero-chart-bubble2>  
     </div> 
 </div>
