@@ -19,32 +19,33 @@
         <app-pie2></app-pie2>
         </md-tab>
     <md-tab label="Chart JS" >
-        test the chartJS library 
-        </md-tab>
+        <app-hero-charjs></app-hero-charjs>
+         </md-tab>
     
     <md-tab label="Tables agGrid" >
         <app-hero-table></app-hero-table>  
         </md-tab>
     <md-tab label="Tables NG" >
         <app-hero-tableng></app-hero-tableng>  
+        <md-grid-list cols="4" >
+            <md-grid-tile      [colspan]="3"      [rowspan]="1">1
+            </md-grid-tile>
+            <md-grid-tile      [colspan]="1"      [rowspan]="1">2
+            </md-grid-tile>
+        </md-grid-list>
         </md-tab>
     
     </md-tab-group>
     <span class="container-menu">
     <!-- <button md-button class="diagram-menu-item" (click)="clickMenuItem('toggle')">{{ labelToogle }}</button> -->
     <md-button-toggle-group #group="mdButtonToggleGroup" (change)="onToggleGroupChange($event)" >
-        <md-button-toggle value="bubbles" checked="true">   Bubbles </md-button-toggle>
-        <md-button-toggle value="table">   Table     </md-button-toggle>
+        <md-button-toggle value="bubbles" >   Bubbles </md-button-toggle>
+        <md-button-toggle value="table"checked="true">   Table     </md-button-toggle>
     </md-button-toggle-group>
     </span>
 
             <app-hero-chart-bubble  *ngIf="state == states.BUBBLE" ></app-hero-chart-bubble>  
             <app-hero-chart-bubble2 *ngIf="state == states.BUBBLE"></app-hero-chart-bubble2>  
-<md-grid-list cols="4" >
-  <md-grid-tile      [colspan]="3"      [rowspan]="1">1
-  </md-grid-tile>
-  <md-grid-tile      [colspan]="1"      [rowspan]="1">2
-  </md-grid-tile>
-</md-grid-list>
+
 
 
