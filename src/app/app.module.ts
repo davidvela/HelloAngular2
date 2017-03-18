@@ -38,6 +38,7 @@ import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
 import { PaginationModule } from "ng2-bootstrap/ng2-bootstrap";
 import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { HeroCharjsComponent } from './hero-charts/hero-charjs/hero-charjs.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { HeroCharjsComponent } from './hero-charts/hero-charjs/hero-charjs.compo
     HeroCharjsComponent,
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     Ng2PaginationModule, 
     FormsModule,

@@ -1,3 +1,78 @@
+
 <p>
   hero-charjs works!
 </p>
+<!-- test
+<div style="display: block">  top:60px; left:10px; 
+-->
+
+<md-grid-list cols="4" rowHeight="500px">
+  <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="red" >
+        <div style="position:absolute; width:500px; height:500px;">
+          <canvas baseChart 
+                      [data]="chartData"
+                      [colors]="doughnutChartColors"
+                      [labels]="chartLabels"
+                      [chartType]="doughnutChartType"></canvas>
+        </div>
+  </md-grid-tile>
+  <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="red" >
+        <div style="position:absolute; width:500px; height:500px;">
+        <canvas baseChart
+                [datasets]="radarChartData"
+                [labels]="radarChartLabels"
+                [chartType]="radarChartType"></canvas>
+      </div>
+  </md-grid-tile>
+  <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="red" >
+        <div style="position:absolute; width:500px; height:500px;">
+          hello
+          <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"></canvas>
+      </div>
+  </md-grid-tile>
+  <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="red" >
+        <div style="position:absolute; width:500px; height:500px;">
+          hello
+          <canvas baseChart
+          [data]="polarAreaChartData"
+          [labels]="polarAreaChartLabels"
+          [legend]="polarAreaLegend"
+          [chartType]="polarAreaChartType"></canvas>
+      </div>
+  </md-grid-tile>
+  </md-grid-list>
+
+<md-grid-list cols="4" rowHeight="600px">
+  <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="red" >
+        <div style="position:absolute; width:500px; height:600px;">
+          hello
+        <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+      </div>
+  </md-grid-tile>
+</md-grid-list>
